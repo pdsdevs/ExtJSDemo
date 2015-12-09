@@ -10,7 +10,7 @@ Ext.define('Demo.view.main.MainController', {
     alias: 'controller.main',
 
     onAddClicked: function (button) {
-        this.getView().down( 'mainlist' ).getStore().add( { text: 'Yet another item in the to-do list', done: false } );
+        Ext.getStore('notes').add( { text: 'Yet another item in the to-do list', done: false } );
     },
 
     onRemoveClicked: function (button) {
