@@ -10,7 +10,7 @@ Ext.define('Demo.view.main.MainController', {
     alias: 'controller.main',
 
     onAddClicked: function (button) {
-        this.getView().down( 'mainlist' ).getStore().add( { text: 'Yet another item in the to-do list' } );
+        this.getView().down( 'mainlist' ).getStore().add( { text: 'Yet another item in the to-do list', done: false } );
     },
 
     onRemoveClicked: function (button) {
@@ -19,6 +19,18 @@ Ext.define('Demo.view.main.MainController', {
 			Ext.Msg.confirm( 'Are you sure?', 'Item' + (selectedRecords.length > 1 ? 's' : '') + ' will be removed', 'onConfirm', this);
 		} else {
 			Ext.Msg.alert( 'No item is selected for removal' );
+		}
+    },
+
+    onDoneClicked: function (button) {
+		var selectedRecords = this.getView().down( 'mainlist' ).getSelection();
+		if ( selectedRecords && selectedRecords.length ) {
+			Ext.each( selectedRecords, function( item ) {
+				item.set( 'done', true );
+				item.commit();
+			});
+		} else {
+			Ext.Msg.alert( 'No item is selected to mark as done' );
 		}
     },
 

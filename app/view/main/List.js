@@ -24,10 +24,11 @@ Ext.define('Demo.view.main.List', {
 
 	tbar: [
 		{ xtype: 'button', text: 'Add', handler: 'onAddClicked' },
-		{ xtype: 'button', text: 'Remove', handler: 'onRemoveClicked' }
+		{ xtype: 'button', text: 'Remove', handler: 'onRemoveClicked' },
+		{ xtype: 'button', text: 'Mark Done', handler: 'onDoneClicked' }
 	],
 
     columns: [
-        { text: 'Items', dataIndex: 'text', flex: 1 }
+        { text: 'Items', flex: 1, xtype: 'templatecolumn', tpl: '<tpl if="done"><strike>{text}</strike></tpl><tpl if="!done">{text}</tpl>' }
     ]
 });

@@ -4,15 +4,19 @@ Ext.define('Demo.store.Notes', {
     alias: 'store.notes',
 
     fields: [
-        'id', 'text'
+        'id', 'text', 'done'
     ],
 
     data: { items: [
-        { id: 1, text: "This is an item in the to-do list" },
-        { id: 2, text: "This is another item in the same to-do list" },
-        { id: 3, text: "Buy groceries" },
-        { id: 4, text: "Buy bread and milk" }
+        { id: 1, text: "This is an item in the to-do list", done: false },
+        { id: 2, text: "This is another item in the same to-do list", done: false },
+        { id: 3, text: "Buy groceries", done: false },
+        { id: 4, text: "Buy bread and milk", done: false }
     ]},
+
+	sorters: [
+		{ property: 'done', order: 'asc' }
+	],
 
     proxy: {
         type: 'memory',
