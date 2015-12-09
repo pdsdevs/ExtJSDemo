@@ -36,7 +36,7 @@ Ext.define('Demo.view.main.MainController', {
 
     onConfirm: function (choice) {
         if (choice === 'yes') {
-			this.getView().down( 'mainlist' ).getStore().remove( this.getView().down( 'mainlist' ).getSelection() );
+			Ext.getStore('notes').remove( this.getView().down( 'mainlist' ).getSelection() );
         }
     }
 });
