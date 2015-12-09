@@ -23,6 +23,7 @@ Ext.define('Demo.view.main.List', {
     },
 
 	tbar: [
+		{ xtype: 'button', text: 'Add', handler: 'onAddClicked' },
 		{ xtype: 'button', text: 'Remove', handler: 'onRemoveClicked' }
 	],
 
