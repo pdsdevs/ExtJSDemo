@@ -3,6 +3,8 @@ Ext.define('Demo.store.Notes', {
 
     alias: 'store.notes',
 
+    storeId: 'notes',
+
     fields: [
         'id', 'text'
     ],
